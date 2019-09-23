@@ -1,0 +1,26 @@
+{% extends "produit/layout.html.twig" %}
+
+{% block contenu %}
+    <article>
+        <h1>Mon panier</h1>
+        {% if utilisateur.panier is not null %}
+            {% for produit in utilisateur.panier.produits %}
+                <p>{{produit.nom}}:
+                    {% if (produit.prix > 1) %}
+                        {{produit.prix}}
+                        gabares</p>
+                {% else %}
+                    {{produit.prix}}
+                    gabare</p>
+            {% endif %}
+            <a href="{{ path('produit_retirer', {'id':produit.id})}}">Supprimer le produit</a>
+        {% endfor %}
+        <p>
+            <strong>
+                Total :</strong>
+            {{ utilisateur.panier.total }}</p>
+    {% else %}
+        <p>Votre panier est vide</p>
+    {% endif %}
+
+</article>{% endblock %}

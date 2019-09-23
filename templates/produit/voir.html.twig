@@ -1,0 +1,23 @@
+{% extends "produit/layout.html.twig" %}
+
+{% block contenu %}
+    <article>
+        <h1>{{produit.nom}}</h1>
+        <p>{{produit.description}}</p>
+        {% if (produit.prix > 1) %}
+            <p>{{produit.prix}}
+                gabares</p>
+        {% else %}
+            <p>{{produit.prix}}
+                gabare</p>
+        {% endif %}
+
+        {% if is_granted("ROLE_USER") %}
+            <a href="{{ path("produit_ajouter", { "id":produit.id }) }}">Ajouter au panier</a>
+            <a href="{{ path("produit_supprimer", { "id":produit.id }) }}">Supprimer du catalogue</a>
+
+
+        {% endif %}
+
+    </article>
+{% endblock %}

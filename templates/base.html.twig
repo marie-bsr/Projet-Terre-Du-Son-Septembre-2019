@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>La foire à la Chaussette et autre...
+            {% block title %}{% endblock %}
+        </title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        <nav>
+            <a href="{{ path('produit_creer')}}">Créer un produit</a>
+            <a href="{{ path('produit_liste')}}">Catalogue</a>
+            {% if is_granted("ROLE_USER") %}
+                <a href="{{ path('utilisateur_panier')}}">Mon panier</a>
+                <a href="{{ path('app_logout')}}">Se déconnecter</a>
+            {% else %}
+                <a href="{{ path('app_register')}}">S'enregistrer</a>
+                <a href="{{ path('app_login')}}">Se connecter</a>
+            {% endif %}
+        </nav>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

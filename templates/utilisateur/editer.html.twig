@@ -1,0 +1,13 @@
+{% extends "produit/layout.html.twig" %}
+
+{% block contenu %}
+    <h2>Modification de l'utilisateur :
+        {{ utilisateur.email }}
+    </h2>
+
+    {{ form_start(formulaire) }}
+    {{ form_widget(formulaire) }}
+    <input type="submit" value="Modifier">
+    {{ form_end(formulaire) }}
+
+{% endblock %}

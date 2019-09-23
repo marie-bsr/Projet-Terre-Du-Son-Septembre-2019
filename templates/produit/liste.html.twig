@@ -1,0 +1,21 @@
+{% extends "produit/layout.html.twig" %}
+
+{% block contenu %}
+
+    <section>
+
+        <h1>Nos Fabuleux Produits</h1>
+
+        <ul>
+            {% for produit in produits %}
+                <li>
+                    <a href="{{path('produit_voir', {'id': produit.id})}}">{{produit.nom}}
+                        =
+                        {{produit.prix}}
+                        Gb</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+{% endblock %}

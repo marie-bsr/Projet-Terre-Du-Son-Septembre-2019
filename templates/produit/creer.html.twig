@@ -1,0 +1,12 @@
+{% extends "produit/layout.html.twig" %}
+
+{% block contenu %}
+
+    {{form_start(formulaire)}}
+
+    {{ form_widget(formulaire)}}
+    <input type="submit" value="Enregistrer"/>
+
+    {{form_end(formulaire)}}
+
+{% endblock %}
